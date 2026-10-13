@@ -18,6 +18,7 @@ All notable changes to this project are listed here. The format follows [Keep a 
 - Optional FastAPI `POST /score` with probability, decision and top-5 SHAP reasons (404 for unknown IDs).
 - pytest suite for leakage, data contracts, determinism, the cost maths, the full CLI and the API, all on generated fixture data. GitHub Actions runs ruff and pytest.
 - `credit/synthetic.py`: generated tables with the real Home Credit column names, for tests and CI only.
+- `scripts/compare_agg_threads.py`: rebuilds the feature store several times and compares Parquet hashes, used to measure the determinism fix.
 
 ### Fixed
 
