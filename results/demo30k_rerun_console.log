@@ -1,0 +1,73 @@
+# Independent re-run on 2026-10-13 in a fresh venv (pip install -r requirements.txt), same 30k generated data
+# (credit/synthetic.py --n 30000 --seed 1) and same config as docs/synthetic_demo. Feature hash and every metric
+# match docs/synthetic_demo/console.log exactly; only wall-clock timings differ (shared laptop).
+2026/10/13 22:20:35 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/10/13 22:20:35 INFO mlflow.store.db.utils: Updating database tables
+<venv>\Lib\site-packages\shap\explainers\_tree.py:586: UserWarning: LightGBM binary classifier with TreeExplainer shap values output has changed to a list of ndarray
+  warnings.warn(
+[features] done in 10.6s
+[features_rebuild_for_determinism] done in 26.9s
+determinism: identical parquet hash on rebuild = True
+{
+  "rows": 30000,
+  "synthetic": true,
+  "n_features_total": 142,
+  "csv_load_seconds": 7.68,
+  "join_and_write_seconds": 0.93,
+  "total_seconds": 10.58,
+  "duckdb_threads": 8,
+  "duckdb_agg_threads": 1,
+  "duckdb_version": "1.5.6",
+  "sha256": "825d91a034b0418e04aebfb8511b8ac6848360608530c7c6718500d29f725e5b"
+}
+  application                33 features     30000 rows     0.6s
+  bureau                     32 features     29962 rows     0.7s
+  previous_application       27 features     28912 rows     0.1s
+  installments_payments      19 features     24880 rows     0.2s
+  pos_cash_balance           14 features     20476 rows     0.2s
+  credit_card_balance        17 features     12879 rows     0.1s
+[train_logreg_app] done in 128.8s
+{'name': 'logreg_app', 'n_features': 33, 'train_seconds': 4.44, 'calib_auc': 0.76101720591898, 'calib_pr_auc': 0.29153379085169473, 'test_auc': 0.7332054593254058, 'test_pr_auc': 0.23656259862703968}
+[ablate] done in 160.7s
+{'step': 1, 'added': 'app', 'run': 'lgbm_app', 'n_features': 33, 'best_iteration': 2, 'train_seconds': 10.49, 'test_auc': 0.7338, 'delta_vs_previous': None, 'delta_vs_app_only': 0.0}
+{'step': 2, 'added': 'bureau', 'run': 'lgbm_app+bureau', 'n_features': 65, 'best_iteration': 20, 'train_seconds': 9.6, 'test_auc': 0.73763, 'delta_vs_previous': 0.00383, 'delta_vs_app_only': 0.00383}
+{'step': 3, 'added': 'previous_application', 'run': 'lgbm_app+bureau+previous_application', 'n_features': 92, 'best_iteration': 5, 'train_seconds': 17.12, 'test_auc': 0.73777, 'delta_vs_previous': 0.00014, 'delta_vs_app_only': 0.00396}
+{'step': 4, 'added': 'installments', 'run': 'lgbm_app+bureau+previous_application+installments', 'n_features': 111, 'best_iteration': 7, 'train_seconds': 2.39, 'test_auc': 0.7382, 'delta_vs_previous': 0.00043, 'delta_vs_app_only': 0.0044}
+{'step': 5, 'added': 'pos_cc', 'run': 'lgbm_all', 'n_features': 142, 'best_iteration': 24, 'train_seconds': 8.97, 'test_auc': 0.744, 'delta_vs_previous': 0.0058, 'delta_vs_app_only': 0.0102}
+[train_lgbm_all_nosensitive] done in 18.5s
+{'name': 'lgbm_all_nosensitive', 'n_features': 139, 'inner_valid_auc': 0.7395395324588222, 'train_seconds': 4.3, 'calib_auc': 0.767523025530287, 'calib_pr_auc': 0.32301881640331453, 'test_auc': 0.7403315883903929, 'test_pr_auc': 0.23989659229650037}
+[calibrate] done in 1.2s
+{'run': 'lgbm_all', 'n_calib': 3001, 'n_test': 6000, 'test_brier_before': 0.08001988765889133, 'test_brier_after': 0.08112878838264442, 'test_ece_before': 0.01611141030170406, 'test_ece_after': 0.014253449662095881, 'test_auc_before': 0.7439979592387151, 'test_auc_after': 0.7434954747499136, 'test_mean_pred_before': 0.0974389702386966, 'test_mean_pred_after': 0.09741829325586476, 'test_default_rate': 0.09566666666666666, 'brier_delta': 0.0011089007237530951}
+[threshold] done in 1.0s
+{
+  "lgd": 0.45,
+  "fp_margin": 0.1,
+  "bayes_threshold": 0.1818,
+  "optimal": {
+    "threshold": 0.19,
+    "cost": 128874605.0,
+    "approval_rate": 0.8831666666666667,
+    "default_rate_in_approved": 0.07020192489148896
+  },
+  "at_0_5": {
+    "threshold": 0.5,
+    "cost": 142615845.0,
+    "approval_rate": 0.9785,
+    "default_rate_in_approved": 0.08891159938681656
+  },
+  "approve_all": {
+    "threshold": 1.01,
+    "cost": 152335665.0,
+    "approval_rate": 1.0,
+    "default_rate_in_approved": 0.09566666666666666
+  },
+  "reduction_vs_0_5_pct": 9.635142574795951,
+  "reduction_vs_approve_all_pct": 15.400897747746722
+}
+[explain] done in 45.9s
+top features: ['APP_EXT_SOURCE_MEAN', 'bb_dpd_rate_mean', 'EXT_SOURCE_3', 'cc_utilisation_mean_12m', 'EXT_SOURCE_2', 'EXT_SOURCE_1', 'cc_utilisation_mean', 'inst_late_rate', 'pos_dpd_rate', 'bb_dpd_months_12m_sum']
+wrote <repo>\data\_dev\verify30k_run\reports\results.md
+
+real	6m53.434s
+user	0m0.000s
+sys	0m0.062s

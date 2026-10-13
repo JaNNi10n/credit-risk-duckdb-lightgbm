@@ -1,0 +1,14 @@
+# Re-measured during independent verification on 2026-10-13, same 300k generated dataset as this folder
+# (credit/synthetic.py --n 300000 --seed 2; line counts identical to input_line_counts.txt), DuckDB 1.5.6,
+# CSV parsing on 8 threads, memory_limit 2GB, laptop shared with other jobs. Command per row group:
+#   python scripts/compare_agg_threads.py <config> {1|8} {tables|views} 2 <out>
+# tables = current pipeline layout (CSVs loaded once); views = pre-fix layout (each query re-reads its CSVs).
+mode=tables agg_threads=1 build=0 seconds=121.7 sha256=8e11d9317bb452762722fcea36978fb6173f8598d05632a61a9a041df97c6f2b
+mode=tables agg_threads=1 build=1 seconds=124.4 sha256=8e11d9317bb452762722fcea36978fb6173f8598d05632a61a9a041df97c6f2b
+mode=tables agg_threads=1 distinct_hashes=1 of 2 builds
+mode=tables agg_threads=8 build=0 seconds=50.0 sha256=0d36fb3257c12838569969c7176982940c25e7f7665036a9e15598812fbce2a8
+mode=tables agg_threads=8 build=1 seconds=80.6 sha256=9d7b1ba16006694131e19d8b0fab7eb49b4c684a78a7659f22f4a9ab82b43c57
+mode=tables agg_threads=8 distinct_hashes=2 of 2 builds
+mode=views agg_threads=8 build=0 seconds=217.0 sha256=a2d8f54c565fb3ef07c4889772190bf599fdc35c5f4feff532e8be919c00b7d5
+mode=views agg_threads=8 build=1 seconds=159.4 sha256=bee3ffab539b8e4eac665ac224d313ee596ab0a7fcbe8999572e5893e83af577
+mode=views agg_threads=8 distinct_hashes=2 of 2 builds

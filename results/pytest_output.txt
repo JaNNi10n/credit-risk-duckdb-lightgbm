@@ -1,6 +1,6 @@
 ============================= test session starts =============================
 platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0
-rootdir: E:\Jassi\portfolio\credit-risk-duckdb-lightgbm
+rootdir: <repo>
 configfile: pyproject.toml
 testpaths: tests
 plugins: anyio-4.15.1
