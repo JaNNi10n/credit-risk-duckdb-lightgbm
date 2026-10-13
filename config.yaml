@@ -1,0 +1,62 @@
+# Central configuration. Every path is relative to the repository root unless absolute.
+seed: 42
+
+paths:
+  raw_dir: data/raw                 # Kaggle CSVs (gitignored, never committed)
+  features: data/features.parquet   # materialised feature store (one row per SK_ID_CURR)
+  feature_groups: data/feature_groups.json
+  splits: data/splits.parquet
+  preds_dir: data/preds
+  models_dir: models
+  results_dir: results              # small JSON/CSV result files that back every README number
+  reports_dir: reports              # plots + results.md
+  mlruns: mlruns                    # MLflow: sqlite backend + artifact folder, all local
+
+split:            # stratified on TARGET, seed above
+  train: 0.70
+  calib: 0.10
+  test: 0.20
+
+duckdb:
+  threads: 8          # CSV parsing threads
+  agg_threads: 1      # GROUP BY threads: 1 keeps float sums in a fixed order, so the parquet is bit-identical
+  memory_limit: 4GB   # DuckDB spills to temp_directory beyond this
+  temp_directory: data/duckdb_tmp
+
+mlflow:
+  log_models: true   # model artefacts in MLflow (tests switch this off for speed)
+
+logreg:
+  C: 1.0
+  max_iter: 2000
+
+lgbm:
+  learning_rate: 0.05
+  num_leaves: 31
+  n_estimators: 1000          # upper bound, early stopping picks the real number
+  early_stopping_rounds: 100
+  inner_valid_frac: 0.10      # carved out of the 70% train split
+  feature_fraction: 0.8
+  min_child_samples: 20
+  num_threads: 8
+
+# Cumulative table ablation: each step adds the named group to the previous step.
+ablation: [app, bureau, previous_application, installments, pos_cc]
+
+# Columns removed for the fairness check (protected attributes + features derived from them).
+sensitive_features: [CODE_GENDER, DAYS_BIRTH, APP_EMPLOYED_TO_AGE]
+
+calibration:
+  n_bins: 10
+
+cost:
+  lgd: 0.45          # cost(FN) = LGD * AMT_CREDIT   (approved applicant who defaults)
+  fp_margin: 0.10    # cost(FP) = 0.10 * AMT_CREDIT  (rejected good applicant, lost margin)
+  lgd_sensitivity: [0.30, 0.45, 0.60]
+  threshold_min: 0.01
+  threshold_max: 0.99
+  threshold_step: 0.01
+
+explain:
+  n_rows: 5000
+  top_n: 20

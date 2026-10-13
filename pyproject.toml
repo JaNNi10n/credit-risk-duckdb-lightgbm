@@ -1,0 +1,22 @@
+[project]
+name = "credit-risk-duckdb-lightgbm"
+version = "1.0.0"
+description = "Home Credit default risk: DuckDB SQL features, LightGBM, isotonic calibration, SHAP and a cost-based threshold."
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Shivansh Bhardwaj" }]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning", "ignore::FutureWarning"]
+
+[tool.ruff]
+line-length = 140
+target-version = "py310"
+extend-exclude = ["data", "mlruns"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP"]
+ignore = ["B905"]

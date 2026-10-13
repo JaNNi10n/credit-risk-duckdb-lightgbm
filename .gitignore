@@ -1,0 +1,22 @@
+# Kaggle data is never committed (competition rules forbid redistribution)
+data/*
+!data/.gitkeep
+*.zip
+
+# Generated artefacts
+models/
+mlruns/
+mlflow.db
+.tmp/
+
+# Python / tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+*.egg-info/
+.ipynb_checkpoints/
+.vscode/
+.idea/
