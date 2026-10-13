@@ -1,0 +1,8 @@
+2026/10/13 18:23:01 INFO mlflow.store.db.utils: Creating initial MLflow database tables...
+2026/10/13 18:23:01 INFO mlflow.store.db.utils: Updating database tables
+[train_lgbm_all] done in 118.6s
+{'name': 'lgbm_all', 'n_features': 142, 'inner_valid_auc': 0.7523523623175215, 'train_seconds': 39.97, 'calib_auc': 0.7432227285382647, 'calib_pr_auc': 0.25809439150970415, 'test_auc': 0.7471981571078797, 'test_pr_auc': 0.2633412500036154}
+
+real	2m10.764s
+user	0m0.015s
+sys	0m0.015s

@@ -1,0 +1,114 @@
+{
+  "run": "lgbm_all",
+  "n_rows": 5000,
+  "threshold": 0.19,
+  "base_value_logodds": -2.3938340084483243,
+  "top_features": [
+    {
+      "feature": "APP_EXT_SOURCE_MEAN",
+      "mean_abs_shap": 0.2892885642688721
+    },
+    {
+      "feature": "bb_dpd_rate_mean",
+      "mean_abs_shap": 0.11609069834262661
+    },
+    {
+      "feature": "EXT_SOURCE_3",
+      "mean_abs_shap": 0.041996903750772155
+    },
+    {
+      "feature": "cc_utilisation_mean_12m",
+      "mean_abs_shap": 0.025186210810681238
+    },
+    {
+      "feature": "EXT_SOURCE_2",
+      "mean_abs_shap": 0.02449233479752887
+    },
+    {
+      "feature": "EXT_SOURCE_1",
+      "mean_abs_shap": 0.023291170328543404
+    },
+    {
+      "feature": "cc_utilisation_mean",
+      "mean_abs_shap": 0.02214170657499081
+    },
+    {
+      "feature": "inst_late_rate",
+      "mean_abs_shap": 0.017171939822389935
+    },
+    {
+      "feature": "pos_dpd_rate",
+      "mean_abs_shap": 0.01560619153854933
+    },
+    {
+      "feature": "bb_dpd_months_12m_sum",
+      "mean_abs_shap": 0.012611623495497059
+    },
+    {
+      "feature": "bb_dpd_rate_max",
+      "mean_abs_shap": 0.012040774055756048
+    },
+    {
+      "feature": "bur_dpd_rate",
+      "mean_abs_shap": 0.011193763905410214
+    },
+    {
+      "feature": "inst_days_early_mean",
+      "mean_abs_shap": 0.010191951285021619
+    },
+    {
+      "feature": "bb_dpd30_rate_mean",
+      "mean_abs_shap": 0.009257483059566139
+    },
+    {
+      "feature": "prev_rate_down_payment_mean",
+      "mean_abs_shap": 0.00737392043302523
+    },
+    {
+      "feature": "bur_days_enddate_fact_max",
+      "mean_abs_shap": 0.007230970320036768
+    },
+    {
+      "feature": "cc_balance_max",
+      "mean_abs_shap": 0.0064837369412752135
+    },
+    {
+      "feature": "prev_days_decision_min",
+      "mean_abs_shap": 0.005423546576694916
+    },
+    {
+      "feature": "inst_days_late_mean",
+      "mean_abs_shap": 0.005421825167700228
+    },
+    {
+      "feature": "bur_amt_max_overdue_max",
+      "mean_abs_shap": 0.005358940937952655
+    }
+  ],
+  "local_examples": [
+    {
+      "file": "shap_waterfall_approved_1.png",
+      "decision": "approved",
+      "SK_ID_CURR": 118118,
+      "prob_cal": 0.0256
+    },
+    {
+      "file": "shap_waterfall_approved_2.png",
+      "decision": "approved",
+      "SK_ID_CURR": 118454,
+      "prob_cal": 0.0318
+    },
+    {
+      "file": "shap_waterfall_rejected_1.png",
+      "decision": "rejected",
+      "SK_ID_CURR": 121188,
+      "prob_cal": 0.2174
+    },
+    {
+      "file": "shap_waterfall_rejected_2.png",
+      "decision": "rejected",
+      "SK_ID_CURR": 111720,
+      "prob_cal": 0.2609
+    }
+  ]
+}

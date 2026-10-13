@@ -1,0 +1,15 @@
+{
+  "run": "lgbm_all",
+  "n_calib": 3001,
+  "n_test": 6000,
+  "test_brier_before": 0.08001988765889133,
+  "test_brier_after": 0.08112878838264442,
+  "test_ece_before": 0.01611141030170406,
+  "test_ece_after": 0.014253449662095881,
+  "test_auc_before": 0.7439979592387151,
+  "test_auc_after": 0.7434954747499136,
+  "test_mean_pred_before": 0.0974389702386966,
+  "test_mean_pred_after": 0.09741829325586476,
+  "test_default_rate": 0.09566666666666666,
+  "brier_delta": 0.0011089007237530951
+}

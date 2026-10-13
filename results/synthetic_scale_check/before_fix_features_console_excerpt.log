@@ -1,0 +1,22 @@
+# Excerpt (last lines) of the console log of the feature build BEFORE the determinism fix,
+# same 300k generated dataset, 8 DuckDB threads for the GROUP BY queries, CSVs read through views.
+# The full log file was overwritten by the re-run after the fix; these lines were copied from it verbatim.
+[features] done in 257.1s
+[features_rebuild_for_determinism] done in 192.3s
+determinism: identical parquet hash on rebuild = False
+{
+  "rows": 300000,
+  "synthetic": true,
+  "n_features_total": 142,
+  "join_and_write_seconds": 11.01,
+  "total_seconds": 256.92,
+  "duckdb_threads": 8,
+  "duckdb_version": "1.5.6",
+  "sha256": "5ffea6294a92f108d2cd44eb7ac05cf533a48cc01c4f2b2dca8ab8479c3be92c"
+}
+  application                33 features    300000 rows    10.5s
+  bureau                     32 features    299303 rows    57.6s
+  previous_application       27 features    289245 rows    14.5s
+  installments_payments      19 features    248908 rows    24.0s
+  pos_cash_balance           14 features    204728 rows     9.6s
+  credit_card_balance        17 features    129694 rows     8.9s

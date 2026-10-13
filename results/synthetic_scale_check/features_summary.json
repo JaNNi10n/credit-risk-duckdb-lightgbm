@@ -1,0 +1,44 @@
+{
+  "rows": 300000,
+  "synthetic": true,
+  "n_features_total": 142,
+  "tables": {
+    "application": {
+      "features": 33,
+      "rows": 300000,
+      "seconds": 1.11
+    },
+    "bureau": {
+      "features": 32,
+      "rows": 299303,
+      "seconds": 8.35
+    },
+    "previous_application": {
+      "features": 27,
+      "rows": 289245,
+      "seconds": 2.01
+    },
+    "installments_payments": {
+      "features": 19,
+      "rows": 248908,
+      "seconds": 3.27
+    },
+    "pos_cash_balance": {
+      "features": 14,
+      "rows": 204728,
+      "seconds": 2.09
+    },
+    "credit_card_balance": {
+      "features": 17,
+      "rows": 129694,
+      "seconds": 1.15
+    }
+  },
+  "csv_load_seconds": 76.94,
+  "join_and_write_seconds": 17.49,
+  "total_seconds": 113.08,
+  "duckdb_threads": 8,
+  "duckdb_agg_threads": 1,
+  "duckdb_version": "1.5.6",
+  "sha256": "8e11d9317bb452762722fcea36978fb6173f8598d05632a61a9a041df97c6f2b"
+}

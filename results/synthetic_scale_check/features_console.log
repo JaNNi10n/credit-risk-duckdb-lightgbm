@@ -1,0 +1,25 @@
+[features] done in 113.3s
+[features_rebuild_for_determinism] done in 128.0s
+determinism: identical parquet hash on rebuild = True
+{
+  "rows": 300000,
+  "synthetic": true,
+  "n_features_total": 142,
+  "csv_load_seconds": 76.94,
+  "join_and_write_seconds": 17.49,
+  "total_seconds": 113.08,
+  "duckdb_threads": 8,
+  "duckdb_agg_threads": 1,
+  "duckdb_version": "1.5.6",
+  "sha256": "8e11d9317bb452762722fcea36978fb6173f8598d05632a61a9a041df97c6f2b"
+}
+  application                33 features    300000 rows     1.1s
+  bureau                     32 features    299303 rows     8.3s
+  previous_application       27 features    289245 rows     2.0s
+  installments_payments      19 features    248908 rows     3.3s
+  pos_cash_balance           14 features    204728 rows     2.1s
+  credit_card_balance        17 features    129694 rows     1.1s
+
+real	4m14.029s
+user	0m0.015s
+sys	0m0.062s

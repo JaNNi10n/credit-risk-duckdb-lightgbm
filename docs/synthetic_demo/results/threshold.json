@@ -1,0 +1,110 @@
+{
+  "run": "lgbm_all",
+  "selection_split": "calib",
+  "evaluation_split": "test",
+  "n_calib": 3001,
+  "n_test": 6000,
+  "test_total_credit": 3496043400.0,
+  "main": {
+    "lgd": 0.45,
+    "fp_margin": 0.1,
+    "bayes_threshold": 0.1818,
+    "optimal": {
+      "threshold": 0.19,
+      "cost": 128874605.0,
+      "approval_rate": 0.8831666666666667,
+      "default_rate_in_approved": 0.07020192489148896
+    },
+    "at_0_5": {
+      "threshold": 0.5,
+      "cost": 142615845.0,
+      "approval_rate": 0.9785,
+      "default_rate_in_approved": 0.08891159938681656
+    },
+    "approve_all": {
+      "threshold": 1.01,
+      "cost": 152335665.0,
+      "approval_rate": 1.0,
+      "default_rate_in_approved": 0.09566666666666666
+    },
+    "reduction_vs_0_5_pct": 9.635142574795951,
+    "reduction_vs_approve_all_pct": 15.400897747746722
+  },
+  "sensitivity": [
+    {
+      "lgd": 0.3,
+      "fp_margin": 0.1,
+      "bayes_threshold": 0.25,
+      "optimal": {
+        "threshold": 0.28,
+        "cost": 95704040.0,
+        "approval_rate": 0.9491666666666667,
+        "default_rate_in_approved": 0.08323090430201932
+      },
+      "at_0_5": {
+        "threshold": 0.5,
+        "cost": 96554970.0,
+        "approval_rate": 0.9785,
+        "default_rate_in_approved": 0.08891159938681656
+      },
+      "approve_all": {
+        "threshold": 1.01,
+        "cost": 101557110.0,
+        "approval_rate": 1.0,
+        "default_rate_in_approved": 0.09566666666666666
+      },
+      "reduction_vs_0_5_pct": 0.8812907300369988,
+      "reduction_vs_approve_all_pct": 5.763328633514675
+    },
+    {
+      "lgd": 0.45,
+      "fp_margin": 0.1,
+      "bayes_threshold": 0.1818,
+      "optimal": {
+        "threshold": 0.19,
+        "cost": 128874605.0,
+        "approval_rate": 0.8831666666666667,
+        "default_rate_in_approved": 0.07020192489148896
+      },
+      "at_0_5": {
+        "threshold": 0.5,
+        "cost": 142615845.0,
+        "approval_rate": 0.9785,
+        "default_rate_in_approved": 0.08891159938681656
+      },
+      "approve_all": {
+        "threshold": 1.01,
+        "cost": 152335665.0,
+        "approval_rate": 1.0,
+        "default_rate_in_approved": 0.09566666666666666
+      },
+      "reduction_vs_0_5_pct": 9.635142574795951,
+      "reduction_vs_approve_all_pct": 15.400897747746722
+    },
+    {
+      "lgd": 0.6,
+      "fp_margin": 0.1,
+      "bayes_threshold": 0.1429,
+      "optimal": {
+        "threshold": 0.13,
+        "cost": 158641580.0,
+        "approval_rate": 0.8483333333333334,
+        "default_rate_in_approved": 0.06581532416502947
+      },
+      "at_0_5": {
+        "threshold": 0.5,
+        "cost": 188676720.0,
+        "approval_rate": 0.9785,
+        "default_rate_in_approved": 0.08891159938681656
+      },
+      "approve_all": {
+        "threshold": 1.01,
+        "cost": 203114220.0,
+        "approval_rate": 1.0,
+        "default_rate_in_approved": 0.09566666666666666
+      },
+      "reduction_vs_0_5_pct": 15.918837257717854,
+      "reduction_vs_approve_all_pct": 21.895384774143334
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "calib": {
+    "rows": 30001,
+    "default_rate": 0.09413
+  },
+  "test": {
+    "rows": 60000,
+    "default_rate": 0.09413
+  },
+  "train": {
+    "rows": 209999,
+    "default_rate": 0.09414
+  }
+}

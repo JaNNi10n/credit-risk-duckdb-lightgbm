@@ -1,0 +1,12 @@
+============================= test session starts =============================
+platform win32 -- Python 3.12.10, pytest-9.1.1, pluggy-1.6.0
+rootdir: E:\Jassi\portfolio\credit-risk-duckdb-lightgbm
+configfile: pyproject.toml
+testpaths: tests
+plugins: anyio-4.15.1
+collected 31 items
+tests\test_end_to_end.py .......                                         [ 22%]
+tests\test_features.py ...............                                   [ 70%]
+tests\test_splits.py ...                                                 [ 80%]
+tests\test_threshold.py ......                                           [100%]
+============================= 31 passed in 48.64s =============================

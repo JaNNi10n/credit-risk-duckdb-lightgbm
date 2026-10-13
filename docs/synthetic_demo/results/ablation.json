@@ -1,0 +1,57 @@
+[
+  {
+    "step": 1,
+    "added": "app",
+    "run": "lgbm_app",
+    "n_features": 33,
+    "best_iteration": 2,
+    "train_seconds": 2.88,
+    "test_auc": 0.7338,
+    "delta_vs_previous": null,
+    "delta_vs_app_only": 0.0
+  },
+  {
+    "step": 2,
+    "added": "bureau",
+    "run": "lgbm_app+bureau",
+    "n_features": 65,
+    "best_iteration": 20,
+    "train_seconds": 52.56,
+    "test_auc": 0.73763,
+    "delta_vs_previous": 0.00383,
+    "delta_vs_app_only": 0.00383
+  },
+  {
+    "step": 3,
+    "added": "previous_application",
+    "run": "lgbm_app+bureau+previous_application",
+    "n_features": 92,
+    "best_iteration": 5,
+    "train_seconds": 49.91,
+    "test_auc": 0.73777,
+    "delta_vs_previous": 0.00014,
+    "delta_vs_app_only": 0.00396
+  },
+  {
+    "step": 4,
+    "added": "installments",
+    "run": "lgbm_app+bureau+previous_application+installments",
+    "n_features": 111,
+    "best_iteration": 7,
+    "train_seconds": 5.68,
+    "test_auc": 0.7382,
+    "delta_vs_previous": 0.00043,
+    "delta_vs_app_only": 0.0044
+  },
+  {
+    "step": 5,
+    "added": "pos_cc",
+    "run": "lgbm_all",
+    "n_features": 142,
+    "best_iteration": 24,
+    "train_seconds": 6.04,
+    "test_auc": 0.744,
+    "delta_vs_previous": 0.0058,
+    "delta_vs_app_only": 0.0102
+  }
+]
