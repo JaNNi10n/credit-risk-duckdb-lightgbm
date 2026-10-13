@@ -1,0 +1,10 @@
+{
+  "description": "Home Credit default risk: DuckDB SQL features, LightGBM, isotonic calibration, SHAP, cost-based threshold, MLflow.",
+  "topics": ["credit-risk", "lightgbm", "duckdb", "mlflow", "shap", "scikit-learn", "feature-engineering", "machine-learning"],
+  "homepage": "",
+  "release": {
+    "tag": "v1.0.0",
+    "title": "v1.0.0: feature pipeline, models, calibration, SHAP and cost threshold",
+    "notes": "First release.\n\n- DuckDB SQL feature store: one file per Home Credit table, aggregated to one row per `SK_ID_CURR`, written to Parquet.\n- Logistic Regression baseline and LightGBM with early stopping, plus a cumulative per-table ablation.\n- Isotonic calibration on a held-out 10% split, with Brier score, ECE and a reliability diagram.\n- SHAP beeswarm and per-applicant waterfalls.\n- Cost-matrix threshold with an LGD sensitivity table.\n- Every run is tracked in a local MLflow store. Optional FastAPI `POST /score`.\n- 31 pytest tests (leakage, data contracts, determinism, cost maths, end to end, API) on generated fixture data. GitHub Actions runs ruff and pytest.\n\n**Known gap:** this release has not been run on the real Kaggle data yet, so it reports no model-quality numbers. Run `bash scripts/download.sh` and `python -m credit all --check-determinism` to produce them."
+  }
+}
